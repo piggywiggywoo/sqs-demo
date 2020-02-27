@@ -1,0 +1,50 @@
+server:
+  port: 8282
+
+aws:
+  configurations:
+    region: ${AWS_REGION:eu-west-1}
+    sqs-endpoint: http://sqs.eu-west-1.amazonaws.com
+
+camel:
+  springboot:
+    name: SQS_Demo
+  component:
+    servlet:
+      mapping:
+        context-path: /v2/*
+        servlet-name: CamelServlet
+  health:
+    check:
+      routes:
+        enabled: true
+      service:
+        enabled: true
+
+logging:
+  level:
+    org.springframework.web: INFO
+    org.cambridge.aop: DEBUG
+  file: /app/sqs-demo.log
+
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include:
+        - info
+        - health
+  endpoint:
+    health:
+      show-details: always
+#    camelroutes:
+#      enabled: true
+#      read-only: false
+
+#Reusing some existing queues and topics here
+sqs_queue_name: sqs-queue-1
+sqs_queue_name_async: sqs-queue-2
+sqs_queue_name_camel: sqs-queue-3
+#This topic has consumer SQS queues 1 and 2
+sns_topic_name: sns-topic-1
