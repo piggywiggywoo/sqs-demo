@@ -1,0 +1,238 @@
+{
+	"info": {
+		"_postman_id": "a4924ee0-a3f4-4563-bc47-b5cec2135978",
+		"name": "SQS Demo",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Send to Queue",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"hello\": \"worldzzzzzz\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8282/v1/sqs-demo/send-to-queue/sqs-queue-2",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8282",
+					"path": [
+						"v1",
+						"sqs-demo",
+						"send-to-queue",
+						"sqs-queue-2"
+					]
+				},
+				"description": "http://localhost:8282/v1/sqs-demo/send-to-queue"
+			},
+			"response": []
+		},
+		{
+			"name": "Poll from Queue",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"hello\": \"world\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8282/v1/sqs-demo/poll-from-queue",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8282",
+					"path": [
+						"v1",
+						"sqs-demo",
+						"poll-from-queue"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Poll from Queue and Delete",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"hello\": \"world\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8282/v1/sqs-demo/poll-from-queue-and-delete",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8282",
+					"path": [
+						"v1",
+						"sqs-demo",
+						"poll-from-queue-and-delete"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Send to Queue (Asyc consumer)",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"hello\": \"world\",\n\t\"async\": \"message\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8282/v1/sqs-demo/send-to-queue/product-ingest-dev-phase3",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8282",
+					"path": [
+						"v1",
+						"sqs-demo",
+						"send-to-queue",
+						"product-ingest-dev-phase3"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Send to Topic",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"hello\": \"from sns\",\n\t\"consumer1\": \"is synchronous polling\",\n\t\"consumer2\": \"is asyncronous receive via JMS\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8282/v1/sqs-demo/send-to-topic",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8282",
+					"path": [
+						"v1",
+						"sqs-demo",
+						"send-to-topic"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Send to Queue via Camel REST",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"field1\": \"aaaa\",\n\t\"field2\": [\n\t\t{\n\t\t\t\"innerField1\": \"aaa111\",\n\t\t\t\"innerField2\": \"aaa222\"\n\t\t},\n\t\t{\n\t\t\t\"innerField1\": \"bbb111\",\n\t\t\t\"innerField2\": \"bbb222\"\n\t\t}\n\t]\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8282/v2/camel-demo/send-to-queue",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8282",
+					"path": [
+						"v2",
+						"camel-demo",
+						"send-to-queue"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}
