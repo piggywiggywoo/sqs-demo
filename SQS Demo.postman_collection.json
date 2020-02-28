@@ -143,7 +143,7 @@
 					}
 				},
 				"url": {
-					"raw": "http://localhost:8282/v1/sqs-demo/send-to-queue/product-ingest-dev-phase3",
+					"raw": "http://localhost:8282/v1/sqs-demo/send-to-queue/sqs-queue-2",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -153,7 +153,7 @@
 						"v1",
 						"sqs-demo",
 						"send-to-queue",
-						"product-ingest-dev-phase3"
+						"sqs-queue-2"
 					]
 				}
 			},
